@@ -1,0 +1,51 @@
+.menu {
+    width: 15%;
+    @media screen and (max-width: 420px) {
+        width: 100%;
+    }
+}
+
+.toolbar {
+    position: relative;
+    height: auto;
+}
+
+.lista {
+    background: inherit;
+    padding: 0px 5px 10px;
+    .item {
+        --background: inherit;
+        --border-color: #e1ead1;
+        .iconos-menu {
+            padding-left: 10px;
+        }
+        .icon {
+            font-size: 65px;
+            position: relative;
+            left: -5px;
+            top: -10px;
+        }
+        .label {
+            color: #e1ead1;
+            margin-left: 10px;
+        }
+        .vendedor {
+            margin-top: 10px;
+        }
+    }
+}
+
+.boton-cerrar {
+    position: absolute;
+    top: -5px;
+    left: 86%;
+}
+
+.toolbar-container {
+    background: rgb(29, 100, 92) !important;
+    background: linear-gradient(180deg, rgba(29, 100, 92, 1) 20%, rgba(4, 128, 116, 1) 100%);
+}
+
+.icon-menu {
+    padding-left: 10px;
+}

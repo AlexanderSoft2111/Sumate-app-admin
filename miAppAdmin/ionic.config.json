@@ -1,0 +1,7 @@
+{
+  "name": "miAppAdmin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

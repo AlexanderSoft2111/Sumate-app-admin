@@ -1,0 +1,17 @@
+<ion-header no-border>
+    <ion-toolbar color="sudamate">
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-title>{{titulo}}</ion-title>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button routerLink="/tienda" *ngIf="tienda">
+                <ion-icon name="storefront"></ion-icon>
+            </ion-button>
+            <ion-button routerLink="/carrito" *ngIf="carro">
+                <ion-icon name="cart"></ion-icon>
+                <ion-badge class="carrito">{{item}}</ion-badge>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>

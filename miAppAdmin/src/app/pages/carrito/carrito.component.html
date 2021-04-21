@@ -1,0 +1,45 @@
+<ion-header>
+    <app-header></app-header>
+</ion-header>
+<ion-content class="container">
+    <ion-item>
+        <ion-label>Para:</ion-label>
+        <ion-chip *ngIf="verChip">
+            <ion-avatar>
+                <ion-img class="img-cliente" [src]="cliente.imagenSmall"></ion-img>
+            </ion-avatar>
+            <ion-label>{{cliente.nombre}} {{cliente.apellido}}</ion-label>
+        </ion-chip>
+        <ion-buttons>
+            <ion-button (click)="openModal()" slot="end">
+                <ion-icon name="person-add"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label class="label">{{articulos}}</ion-label>
+        <ion-label>artículos en tu carrito</ion-label>
+    </ion-item>
+    <div *ngFor="let producto of pedido.productos">
+        <app-item-carrito [productoPedido]="producto"></app-item-carrito>
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-grid class="footer">
+        <ion-row class="ion-justify-content-center">
+            <ion-col class="subtitulo text-center col-detalle" size="6" style="border-right: 1px solid #333;">
+                Cantidad: {{Cantidad}} un
+            </ion-col>
+            <ion-col class="subtitulo text-center col-detalle total" size="6">
+                Total: ${{Total.toFixed(2)}}
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button (click)="pedir()" expand="full" color="sudamate">
+                    Pedir
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

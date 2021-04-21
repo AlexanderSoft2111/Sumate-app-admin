@@ -1,0 +1,15 @@
+<ion-header>
+    <app-header [carro]="true" [tienda]="false" [item]="items"></app-header>
+</ion-header>
+<ion-content class="swiper">
+    <div *ngIf="loading" class="loading">
+        <ion-img src="../../assets/img/loading.gif"></ion-img>
+    </div>
+    <swiper [slidesPerView]="1" [spaceBetween]="10" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()" [navigation]="true" [pagination]="{ clickable: true }" [scrollbar]="{ draggable: true }">
+        <!-- effect="coverflow" -->
+        <ng-template *ngFor="let producto of productos" swiperSlide>
+
+            <app-card-producto (enviar)="recibirItem($event)" [producto]=producto></app-card-producto>
+        </ng-template>
+    </swiper>
+</ion-content>

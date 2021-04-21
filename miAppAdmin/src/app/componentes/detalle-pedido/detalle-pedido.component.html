@@ -1,0 +1,90 @@
+<ion-content>
+
+    <ion-item>
+        <ion-title class="titulo">Detalle del Pedido</ion-title>
+        <ion-buttons class="boton-cerrar" slot="end">
+            <ion-button color="danger" (click)="cerrarModal()">
+                <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <ion-item color="sudamate" class="contenedor-item">
+        <ion-label>
+            Datos generales del pedido
+        </ion-label>
+    </ion-item>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="5.8">
+                <ion-item>
+                    <ion-label class="detalle">
+                        Datos del cliente
+                    </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label>
+                        <h5><b>Cliente: </b>{{verPedido.cliente.nombre}} {{verPedido.cliente.apellido}}</h5>
+                        <h5><b>Cédula: </b>{{verPedido.cliente.cedula}}</h5>
+                        <h5><b>Teléfono: </b>{{verPedido.cliente.telefono}}</h5>
+                        <h5><b>Email: </b>{{verPedido.cliente.email}}</h5>
+                        <h5><b>Tipo Cliente: </b>{{verPedido.cliente.rol}}</h5>
+                        <h5><b>Fecha de Envío: </b><input [(ngModel)]="verPedido.fechaEnvio" type="date"></h5>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6.2">
+                <ion-item>
+                    <ion-label class="detalle">
+                        Datos del pedido
+                    </ion-label>
+                </ion-item>
+                <ion-item lines="none">
+                    <ion-label>
+                        <h5><b>Fecha de creación: </b>{{verPedido.fecha.seconds * 1000 | date}}</h5>
+                        <h5><b>Dirección: </b>{{verPedido.cliente.direccion}}</h5>
+                        <h5><b>Estado: </b>{{verPedido.estado}}</h5>
+                        <h5><b>Total: </b>$ {{verPedido.precioTotal}}</h5>
+                        <h5 *ngIf="verPedido.fechaEnvio"><b>Fecha de Entrega: </b>{{verPedido.fechaEnvio.seconds * 1000 | date}}</h5>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-item color="sudamate" class="contenedor-item segundo">
+        <ion-label>
+            Lineas del pedido
+        </ion-label>
+    </ion-item>
+    <table id="table" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="producto.codigo">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Código </th>
+            <td mat-cell *matCellDef="let element"> {{element.producto.codigo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="producto.descripcion">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Descripción </th>
+            <td mat-cell *matCellDef="let element"> {{element.producto.descripcion}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cantidad">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Cantidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="producto.precio">
+            <th class="encabezado" mat-header-cell *matHeaderCellDef> Precio Unit. </th>
+            <td mat-cell *matCellDef="let element"> {{"$ "+element.producto.precio}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ion-item>
+        <ion-chip slot="end" class="botones" (click)="openPDF()">
+            <ion-icon color="white" name="print-sharp"></ion-icon>
+            <ion-label>Alistar</ion-label>
+        </ion-chip>
+    </ion-item>
+
+</ion-content>

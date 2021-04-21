@@ -1,0 +1,97 @@
+<ion-content>
+    <ion-title class="title">Registrar Producto</ion-title>
+    <ion-grid style="width: 100%;">
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Código</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input maxlength="10" [(ngModel)]="producto.codigo" type="text">
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Descripción</ion-label>
+            </ion-col>
+            <ion-col size="4" class="columInput">
+                <ion-input class="input-registro" [(ngModel)]="producto.descripcion" type="text">
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Precio</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input minlength="6" [(ngModel)]="producto.precio" type="number">
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Cantidad</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input [(ngModel)]="producto.cantidadDisponible" type="number">
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Calificación</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input minlength="6" [(ngModel)]="producto.calificacion" type="number">
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Cantidad por Compra</ion-label>
+            </ion-col>
+            <ion-col size="4" class="columInput">
+                <ion-input minlength="6" [(ngModel)]="producto.cpVenta" type="number">
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Imagen</ion-label>
+            </ion-col>
+            <ion-col size="10" class="columInput">
+                <ion-buttons>
+                    <ion-button slot="end">
+                        <label for="file-upload">
+                        <ion-icon slot="icon-only" name="images"></ion-icon>
+                    </label>
+                        <input (change)="newImagenUpload($event)" id="file-upload" style="display: none;" type="file">
+                        <canvas id="canvas" style="display: none;"></canvas>
+                    </ion-button>
+                </ion-buttons>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col class="columInput imagen">
+                <img class="imagen-producto" [src]="producto.imagen" alt="imagen">
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Detalle</ion-label>
+            </ion-col>
+            <ion-col size="10" class="columInput">
+                <ion-textarea [(ngModel)]="producto.detalle" type="text"></ion-textarea>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="columButtons">
+                <ion-button class="btnCancelar" (click)="cerrarModal()">Cancelar</ion-button>
+                <ion-button *ngIf="saveProduct" class="btnGuardar" [disabled]="registrando" (click)="addProduct()">Guardar</ion-button>
+                <ion-button *ngIf="editProduct" class="btnGuardar" [disabled]="registrando" (click)="updateProduct()">Actualizar</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-spinner *ngIf="registrando" name="circles"></ion-spinner>
+</ion-content>

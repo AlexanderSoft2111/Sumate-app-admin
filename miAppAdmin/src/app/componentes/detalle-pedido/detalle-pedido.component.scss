@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+    & .encabezado {
+        background: #1c5e1c;
+        color: #e1ead1;
+    }
+}
+
+.contenedor-item {
+    --border-radius: 8px;
+    &.segundo {
+        margin-bottom: 4%;
+    }
+}
+
+.titulo {
+    color: #1c5e1c;
+    padding-left: 0;
+}
+
+.detalle {
+    color: #87c93d;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.botones {
+    --background: #1c5e1c;
+    color: white;
+    &.cancelar {
+        --background: #87c93d;
+        color: white;
+    }
+}

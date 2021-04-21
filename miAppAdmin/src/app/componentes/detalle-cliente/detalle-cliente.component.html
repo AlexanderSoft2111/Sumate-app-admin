@@ -1,0 +1,42 @@
+<ion-content>
+    <ion-item color="sudamate" class="contenedor-item">
+        <ion-label class="cabecera">
+            Datos del Cliente
+        </ion-label>
+        <ion-buttons class="boton-cerrar" slot="end">
+            <ion-button color="danger" (click)="cerrarModal()">
+                <ion-icon slot="icon-only" name="close-circle"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-item>
+    <ion-item>
+        <img class="imagen" [src]="verCliente.imagenSmall" alt="Foto Cliente">
+    </ion-item>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <ion-item lines="none">
+                    <ion-label>
+                        <h5 class="label"><b>Cliente: </b>{{verCliente.nombre}} {{verCliente.apellido}}</h5>
+                        <h5 class="label"><b>Cédula: </b>{{verCliente.cedula}}</h5>
+                        <h5 class="label"><b>Teléfono: </b>{{verCliente.telefono}}</h5>
+                        <h5 class="label"><b>Email: </b>{{verCliente.email}}</h5>
+                        <h5 class="label"><b>Códgio de Acceso: </b>{{verCliente.codigo}}</h5>
+                        <h5 class="label"><b>Fecha de Creación: </b>{{verCliente.FechaCreacion.seconds * 1000 | date}}</h5>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item lines="none">
+                    <ion-label>
+                        <h5 class="label"><b>Dirección: </b>{{verCliente.direccion}}</h5>
+                        <h5 class="label"><b>Latitud: </b>{{verCliente.latitud}}</h5>
+                        <h5 class="label"><b>Logintud: </b>{{verCliente.longitud}}</h5>
+                        <h5 class="label"><b>Tipo Cliente: </b>{{verCliente.rol}}</h5>
+                        <h5 class="label"><b>Estado: </b>{{verCliente.estado}}</h5>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

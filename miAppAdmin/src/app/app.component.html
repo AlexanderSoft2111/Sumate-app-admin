@@ -1,0 +1,89 @@
+<ion-app>
+    <ion-split-pane contentId="main" [when]="tamano">
+        <ion-menu class="menu" side="start" menuId="first" contentId="main">
+            <ion-header *ngIf="admin">
+                <ion-toolbar class="toolbar" color="sudamate">
+                    <ion-list class="lista" color="sudamate">
+                        <ion-item lines="none" class="item" color="sudamate">
+                            <ion-icon class="icon" name="person-circle-sharp"></ion-icon>
+                            <ion-label>
+                                <h2 class="titulo label">{{usuario.nombre}} {{usuario.apellido}}</h2>
+                                <h3 class="subtitulo label vendedor">{{usuario.rol}}</h3>
+                            </ion-label>
+                        </ion-item>
+                        <ion-item class="item" (click)="Salir()" lines="none" color="sudamate" button="true">
+                            <ion-label>Cerrar sesión</ion-label>
+                            <ion-icon class="iconos-menu" slot="start" name="log-out"></ion-icon>
+                        </ion-item>
+                    </ion-list>
+                </ion-toolbar>
+            </ion-header>
+            <ion-content *ngIf="admin">
+                <ion-list>
+                    <ion-menu-toggle routerLink="/inicio" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Inicio</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="home"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/usuarios" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Usuarios</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="people-sharp"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/catalago" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Catálogo</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="grid"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/productos" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Productos</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="bag-handle"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/clientes" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Clientes</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="book"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/tienda" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Tienda</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="storefront"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/carrito" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Carrito</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="cart"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/pedidos" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Pedidos</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="list-sharp"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/tutoriales" [autoHide]="menuActivo">
+                        <ion-item button detail>
+                            <ion-label>Tutoriales </ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="film"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                    <ion-menu-toggle routerLink="/pedidos">
+                        <ion-item button detail>
+                            <ion-label>Mis pedidos</ion-label>
+                            <ion-icon class="icon-menu" slot="start" name="list-sharp"></ion-icon>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+
+        <ion-router-outlet id="main"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>

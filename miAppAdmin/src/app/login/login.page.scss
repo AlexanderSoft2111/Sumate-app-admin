@@ -1,0 +1,65 @@
+.container {
+    //--background: linear-gradient( 135deg, #92FFC0 10%, #002661 100%);
+    --background: linear-gradient( 110.1deg, rgba(34, 126, 34, 1) 30%, rgba(168, 251, 60, 1) 70%);
+    max-width: 100%;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 10px 10px 12px #7a888561;
+    width: 25%;
+    height: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.box-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box-item {
+    border: solid 1px grey;
+    border-radius: 30px;
+    height: 35px;
+    width: 80%;
+    --background: #87c93d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    color: white;
+    font-weight: 400;
+}
+
+.box-link {
+    width: 75%;
+}
+
+.link {
+    font-size: small;
+    color: #87c93d;
+    font-weight: 300;
+    text-decoration: none;
+    &.contraseña {
+        margin-left: 25%;
+    }
+}
+
+.button-login {
+    --border: solid 1px #021e22;
+    --border-radius: 35px;
+    height: 35px;
+    width: 80%;
+    --background: #1c5e1c;
+}
+
+.input {
+    margin-left: 20px;
+}
+
+.icon {
+    color: #fcfcfa;
+}

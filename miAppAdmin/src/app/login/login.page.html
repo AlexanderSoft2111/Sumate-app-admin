@@ -1,0 +1,23 @@
+<ion-content class="container">
+    <ion-card class="card">
+        <img src="/assets/img/fondo login.jpg" alt="logo">
+        <ion-card-content>
+            <form #fLogin="ngForm" (ngSubmit)="login()" class="box-card">
+                <ion-item class="box-item">
+                    <ion-icon class="icon" name="person-sharp"></ion-icon>
+                    <ion-input class="input" type="email" [(ngModel)]="user.email" minlength="10" name="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" placeholder="Correo o Usuario"></ion-input>
+                </ion-item>
+                <ion-item class="box-item">
+                    <ion-icon class="icon" name="lock-closed"></ion-icon>
+                    <ion-input placeholder="Contraseña" type="password" class="input" [(ngModel)]="user.password" minlength="5" name="password"></ion-input>
+                </ion-item>
+                <ion-button class="button-login" type="submit" [disabled]="!fLogin.valid">Login</ion-button>
+                <ion-item class="box-link">
+                    <!-- <a class="link registrarse" routerLink="/registrar">Registrarse</a> -->
+                    <a class="link contraseña">Recordar Constraseña?</a>
+                </ion-item>
+            </form>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

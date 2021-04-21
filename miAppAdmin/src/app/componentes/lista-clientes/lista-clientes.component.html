@@ -1,0 +1,73 @@
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Busca por cualquier campo" #input>
+</mat-form-field>
+
+<div class="example-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+
+        <ng-container matColumnDef="imagenSmall">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Imagen </th>
+            <td mat-cell *matCellDef="let element">
+                <ion-thumbnail slot="start">
+                    <ion-img [src]="element.imagenSmall"></ion-img>
+                </ion-thumbnail>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+            <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Celular </th>
+            <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td mat-cell *matCellDef="let element">
+                <ion-buttons>
+                    <ion-button (click)="editCliente(element)">
+                        <span class="material-icons edit">edit</span>
+                    </ion-button>
+                    <ion-button (click)="eliminarCliente(element)">
+                        <span class="material-icons delete" title="Confirmar">delete</span>
+                    </ion-button>
+                    <ion-button [href]="enviarCodigo(element)" Target="_blank">
+                        <ion-icon class="whatsapp" name="logo-whatsapp"></ion-icon>
+                    </ion-button>
+                    <ion-button (click)="visualizar(element)">
+                        <span class="material-icons info">
+                            info
+                            </span>
+                    </ion-button>
+                </ion-buttons>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+
+
+        <tr class="mat-row " *matNoDataRow>
+            <td class="mat-cell " colspan="4 ">No data matching the filter "{{input.value}} "</td>
+        </tr>
+
+    </table>
+</div>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20] " showFirstLastButtons></mat-paginator>
+<ion-button class="btnUsuario " (click)="openModal() ">Añadir Cliente</ion-button>

@@ -1,0 +1,104 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+@import '~swiper/swiper-bundle';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.titulo {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 16px;
+    font-weight: 700;
+    color: #494848;
+    line-height: 18.75px;
+}
+
+.subtitulo {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 14px;
+    font-weight: 600;
+    color: #494848;
+    line-height: 14.06px;
+}
+
+.normal {
+    font-family: 'Raleway', sans-serif !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.rojo span,
+.rojo .sc-ion-action-sheet-md {
+    color: red !important;
+}
+
+.whatsapp span,
+.whatsapp .sc-ion-action-sheet-md {
+    color: #87c93d !important;
+}
+
+.toast-success {
+    --height: 150px;
+    --width: 300px;
+    --background: #e1ead1;
+    --border-radius: 14px;
+    --color: #1c5e1c;
+    text-align: center;
+}
+
+.swiper-button-prev {
+    color: #87c93d !important;
+    top: 5% !important;
+}
+
+.swiper-button-next {
+    color: #87c93d !important;
+    top: 5% !important;
+}
+
+.swiper-pagination-bullet-active,
+.swiper-scrollbar-drag {
+    background-color: #87c93d !important;
+}
+
+.delete {
+    color: #fb3333;
+}
+
+.edit {
+    color: #39a0d8;
+}
+
+.whatsapp {
+    color: #0ae80a;
+}
+
+.info {
+    color: #f79a19fc;
+}

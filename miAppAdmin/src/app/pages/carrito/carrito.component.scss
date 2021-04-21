@@ -1,0 +1,25 @@
+.container {
+    width: 40%;
+    position: relative;
+    left: 30%;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 40%;
+}
+
+.label {
+    margin: 11px 5px;
+    flex: none !important;
+}
+
+.col-detalle {
+    font-size: 18px;
+    font-weight: 700;
+    &.total {
+        color: #1c5e1c;
+    }
+}

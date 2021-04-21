@@ -1,0 +1,20 @@
+<ion-content>
+    <ion-item lines="none">
+        <ion-label class="titulo">Seleccionar cliente</ion-label>
+    </ion-item>
+    <ion-list *ngFor="let cliente of clientes">
+        <ion-item detail (click)="selectCliente(cliente)" button>
+            <ion-thumbnail slot="start">
+                <ion-img class="img-cliente" [src]="cliente.imagenSmall"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+                <h2 class="titulo">{{cliente.nombre}} {{cliente.apellido}}</h2>
+                <h3 class="subtitulo">{{cliente.direccion}}</h3>
+                <p class="subtitulo">{{cliente.telefono}}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-item button>
+        <ion-label class="subtitulo boton-cargar" (click)="cargarMas()">Ver más</ion-label>
+    </ion-item>
+</ion-content>

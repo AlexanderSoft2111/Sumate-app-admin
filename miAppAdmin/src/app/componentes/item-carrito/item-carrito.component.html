@@ -1,0 +1,30 @@
+<ion-grid>
+    <ion-row>
+        <ion-col size="3">
+            <ion-img [src]="productoPedido.producto.imagen"></ion-img>
+        </ion-col>
+        <ion-col size="6" class="colum-detalle">
+            <ion-row>
+                <ion-label class="titulo ion-text-wrap">
+                    {{productoPedido.producto.descripcion}}
+                </ion-label>
+            </ion-row>
+            <ion-row>
+                <ion-label class="subtitulo ion-text-wrap">Cantidad: {{productoPedido.cantidad}} un
+                </ion-label>
+            </ion-row>
+        </ion-col>
+        <ion-col size="3" class="colum-detalle">
+            <ion-row class="label">
+                <ion-label class="titulo precio">$ {{(productoPedido.producto.precio * productoPedido.cantidad).toFixed(2)}}
+                </ion-label>
+            </ion-row>
+            <ion-row>
+                <div *ngIf="botones" class="contenedor-iconos">
+                    <ion-icon (click)="addPedido()" class="icon-add" slot="icon-only" name="add-circle"></ion-icon>
+                    <ion-icon (click)="removePedido()" class="icon-remove" slot="icon-only" name="remove-circle"></ion-icon>
+                </div>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+</ion-grid>

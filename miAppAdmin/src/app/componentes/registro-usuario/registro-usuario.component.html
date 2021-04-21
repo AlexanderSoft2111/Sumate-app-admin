@@ -1,0 +1,103 @@
+<ion-content>
+    <ion-title class="title">Registrar Usuario</ion-title>
+    <ion-grid style="width: 100%;">
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Cédula</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input maxlength="10" [(ngModel)]="user.cedula" type="tel">
+                    <ion-icon name="id-card-sharp"></ion-icon>
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Nombres</ion-label>
+            </ion-col>
+            <ion-col size="4" class="columInput">
+                <ion-input class="input-registro" [(ngModel)]="user.nombre" type="text">
+                    <ion-icon name="person"></ion-icon>
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Apellidos</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input [(ngModel)]="user.apellido" type="text">
+                    <ion-icon name="accessibility"></ion-icon>
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Celular</ion-label>
+            </ion-col>
+            <ion-col size="4" class="columInput">
+                <ion-input [(ngModel)]="user.celular" type="tel">
+                    <ion-icon name="phone-portrait"></ion-icon>
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Contraseña</ion-label>
+            </ion-col>
+            <ion-col size="3.5" class="columInput">
+                <ion-input minlength="6" [(ngModel)]="user.contrasena" type="password">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </ion-input>
+            </ion-col>
+            <ion-col size="0.5"></ion-col>
+            <ion-col size="2" class="columLabel">
+                <ion-label>Confirmar contraseña</ion-label>
+            </ion-col>
+            <ion-col size="4" class="columInput">
+                <ion-input minlength="6" [(ngModel)]="confcontrasena" type="password">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </ion-input>
+            </ion-col>
+
+        </ion-row>
+        <ion-row class="fila">
+            <ion-col size="2" class="columLabel">
+                <ion-label>Correo</ion-label>
+            </ion-col>
+            <ion-col size="10" class="columInput">
+                <ion-input pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" [(ngModel)]="user.email" type="mail">
+                    <ion-icon name="mail"></ion-icon>
+                </ion-input>
+            </ion-col>
+        </ion-row>
+
+        <ion-row class="fila">
+            <ion-col>
+                <ion-list class="radio">
+                    <ion-radio-group [value]="user.rol" [(ngModel)]="user.rol">
+                        <ion-list-header>
+                            <ion-label>Rol</ion-label>
+                        </ion-list-header>
+                        <ion-item>
+                            <ion-label>Administrador</ion-label>
+                            <ion-radio slot="start" value="Administrador"></ion-radio>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Vendedor</ion-label>
+                            <ion-radio slot="start" value="Vendedor"></ion-radio>
+                        </ion-item>
+                    </ion-radio-group>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col class="columButtons">
+                <ion-button class="btnCancelar" (click)="cerrarModal()">Cancelar</ion-button>
+                <ion-button *ngIf="saveUser" class="btnGuardar" [disabled]="registrando" (click)="addUser()">Guardar</ion-button>
+                <ion-button *ngIf="editUser" class="btnGuardar" [disabled]="registrando" (click)="updateUser()">Actualizar</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-spinner *ngIf="registrando" name="circles"></ion-spinner>
+</ion-content>

@@ -1,0 +1,35 @@
+.colum-detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label {
+    align-self: flex-end;
+}
+
+.contenedor-iconos {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon-add {
+    background: #03bb44;
+    color: white;
+    border-radius: 100%;
+    font-size: 24px;
+    margin-right: 10%;
+}
+
+.icon-remove {
+    background: #bb2503;
+    color: white;
+    border-radius: 100%;
+    font-size: 24px;
+}
+
+.precio {
+    font-size: 16px;
+    font-weight: 500;
+}

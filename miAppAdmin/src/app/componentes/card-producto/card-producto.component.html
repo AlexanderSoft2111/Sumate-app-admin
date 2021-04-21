@@ -1,0 +1,65 @@
+<div class="swiper-container">
+    <ion-card class="card">
+        <ion-grid class="padding">
+            <ion-row class="header">
+                <ion-img class="logo-icon" src="../../assets/img/Logo.jpg"></ion-img>
+                <div class="content-titulo">
+                    <ion-card-title class="titulo">{{producto.descripcion}}</ion-card-title>
+                    <ion-card-subtitle class="subtitulo content-subtitulo">
+                        <ion-label>Precio:</ion-label>
+                        <ion-label class="label-precio">{{"$ "+producto.precio}}</ion-label>
+                    </ion-card-subtitle>
+                </div>
+            </ion-row>
+            <ion-row>
+                <ion-col class="padding">
+                    <ion-img [src]="producto.imagen" class="img"></ion-img>
+                </ion-col>
+            </ion-row>
+            <ion-row class="content">
+                <ion-col class="padding">
+                    <ion-card-content class="padding">
+                        <ion-row>
+                            <ion-col class="padding">
+                                <ion-row class="content-detalles">
+                                    <label class="subtitulo">Disponibles:</label>
+                                    <label class="subtitulo">{{producto.cantidadDisponible}} un</label>
+                                </ion-row>
+                                <ion-row class="content-detalles fila-subtotal">
+                                    <label class="subtitulo">Subtotal:</label>
+                                    <label class="subtitulo">$ {{subtotal.toFixed(2)}}</label>
+                                </ion-row>
+                            </ion-col>
+                            <ion-col class="padding">
+                                <ion-row class="content-detalles">
+                                    <label class="subtitulo">Cantidad:</label>
+                                    <label class="subtitulo">{{cantidad}} un</label>
+                                </ion-row>
+                                <ion-row class="content-detalles fila-iconos botones">
+                                    <ion-buttons>
+                                        <ion-button (click)="subirCantidad()">
+                                            <ion-icon class="icon-cantidad mas" name="add-circle"></ion-icon>
+                                        </ion-button>
+                                        <ion-button (click)="restarCantidad()">
+                                            <ion-icon class="icon-cantidad" name="remove-circle"></ion-icon>
+                                        </ion-button>
+                                    </ion-buttons>
+                                </ion-row>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-col>
+            </ion-row>
+            <ion-row class="footer">
+                <ion-chip class="btn-comprar">
+                    <ion-icon name="bag-check" class="btn-comprar"></ion-icon>
+                    <ion-label (click)="addPedido()">Comprar</ion-label>
+                </ion-chip>
+                <ion-chip (click)="goCar()" class="btn-carrito">
+                    <ion-icon name="cart" class="btn-carrito"></ion-icon>
+                    <ion-label>Ir a carrito</ion-label>
+                </ion-chip>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</div>
